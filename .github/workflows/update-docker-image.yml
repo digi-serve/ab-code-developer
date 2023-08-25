@@ -21,9 +21,9 @@ jobs:
         id: repo_name
         shell: bash
         run: |
-          REGEX="/ab_service_(.+)"
+          REGEX="/(.+)"
           [[ "${{ github.repository }}" =~ $REGEX ]]
-          DOCKER_HUB_REPO=ab-${BASH_REMATCH[1]/_/-}
+          DOCKER_HUB_REPO=${BASH_REMATCH[1]}
           echo "docker_hub_repo=$DOCKER_HUB_REPO" >> $GITHUB_OUTPUT
 
       - name: Get commit sha
