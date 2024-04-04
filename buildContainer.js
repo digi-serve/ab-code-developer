@@ -39,8 +39,9 @@ function gitInstall(rootDir, gitURL, dirName) {
    shell.pushd("-q", path.join(rootDir, dirName));
    shell.mkdir("-p", "node_modules");
 
-   console.log("    git checkout");
-   shell.exec("git checkout develop", { silent });
+   // We now use master branches
+   // console.log("    git checkout");
+   // shell.exec("git checkout develop", { silent });
 
    console.log("    git submodule update");
    shell.exec("git submodule update --init --recursive", {
