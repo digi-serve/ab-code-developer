@@ -105,7 +105,12 @@ async function installPlugins(list) {
 
    await installPlugins(list);
 }
-
+appbuilder_platform_pwa
+async function installPWA() {
+   console.log(`... appbuilder_platform_pwa`);
+   const gitURL = `https://github.com/CruGlobal/appbuilder_platform_pwa.git`;
+   gitInstall(devDir, gitURL, "appbuilder_platform_pwa");
+}
 /*
  * in a development container, existing .gz files in the assets will
  * conflict with the new files being developed.
@@ -119,7 +124,8 @@ async function cleanGZ() {
 async function run() {
    try {
       await initService(allServices);
-      await installPlugins(allPlugins);
+      await installPWA();
+      await installPlugins(allPlugins););
       await cleanGZ();
       console.log();
       console.log("... done");
