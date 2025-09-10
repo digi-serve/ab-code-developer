@@ -32,7 +32,7 @@ function gitInstall(rootDir, gitURL, dirName) {
    process.chdir(rootDir);
 
    console.log("    git clone ");
-   shell.exec(`git clone --recursive ${gitURL} ${dirName}`, {
+   shell.exec(`git clone --recursive ${gitURL} ${dirName} --depth=1`, {
       silent,
    });
 
@@ -44,7 +44,8 @@ function gitInstall(rootDir, gitURL, dirName) {
    // shell.exec("git checkout develop", { silent });
 
    console.log("    git submodule update");
-   shell.exec("git submodule update --init --recursive", {
+   // WARNING! this may break easily! simply remove the --depth=1 to fix
+   shell.exec("git submodule update --init --recursive --depth=1", {
       silent,
    });
 
