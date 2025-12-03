@@ -66,6 +66,8 @@ function gitInstall(rootDir, gitURL, dirName) {
             silent,
          });
       }
+      // set git fetch to get all 
+      shell.exec("git config --get remote.origin.fetch")
    }
 
    shell.popd("-q");
